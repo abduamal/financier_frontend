@@ -1,6 +1,7 @@
 import React from 'react'
 import Dashboard from '../Dashboard/Dashboard'
 import Login from '../Login/Login'
+import Signup from '../Signup/Signup'
 import 'style.css'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -13,15 +14,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>NAVBAR GOES HERE.</h1>
       <Router>
+        <h1>NAVBAR GOES HERE.</h1>
         <Switch>
-          <Route path="/dashboard">
-            <Dashboard/>
-          </Route>
-          <Route exact path="/login">
-            <Login/>
-          </Route>
+          <Route path="/dashboard" component={Dashboard}/>
+          <Route exact path="/login" component={Login}/>
+          <Route exact path="/signup" component={Signup}/>
         </Switch>
       </Router>
     </div>
