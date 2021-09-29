@@ -6,27 +6,33 @@ import Signup from '../Signup/Signup'
 import Navbar from '../Navbar/Navbar'
 import 'style.css'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import withAuth from "../Auth/withAuth.js";
+import AccountsContainer from '../Account/AccountsContainer.js'
 
-function App() {
-  // const [token, setToken] = useState()
-  //
-  // if(!token) {
-  //   return <Login setToken={setToken} />
+class App extends React.Component {
+
+  // componentDidMount() {
+  //   fetch(`http://localhost:3001/users/${user_id}/accounts`)
+  //   .then(response => response.json())
+  //   .then(data => console.log(data))
   // }
 
-  return (
-    <div className="App">
-      <Router>
-        <Navbar/>
-        <Switch>
-          <Route exact path="/" component={Homepage} />
-          <Route exact path="/dashboard" component={Dashboard}/>
-          <Route exact path="/login" component={Login}/>
-          <Route exact path="/signup" component={Signup}/>
-        </Switch>
-      </Router>
-    </div>
-  );
+  render(){
+    return (
+      <div className="App">
+        <Router>
+          <Navbar/>
+          <Switch>
+            <Route exact path="/" component={Homepage} />
+            <Route exact path="/dashboard" component={withAuth(Dashboard)}/>
+            <Route exact path="/login" component={Login}/>
+            <Route exact path="/signup" component={Signup}/>
+            <Route exact path="/account" component={withAuth(AccountsContainer)}/>
+          </Switch>
+        </Router>
+      </div>
+    )
+  }
 }
 
 export default App;
