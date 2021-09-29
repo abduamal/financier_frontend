@@ -1,8 +1,12 @@
-import React from "react";
+import React from "react"
 import { connect } from "react-redux"
 import { ReactNavbar } from "react-responsive-animate-navbar"
+// import Logout from "./auth/Logout"
+// import { checkAuth } from "../actions/auth"
 // import Homepage from '../Homepage/Homepage'
 // import Dashboard from '../Dashboard/Dashboard'
+
+
 
 const Navbar = ({ authChecked, loggedIn, currentUser }) => {
 
