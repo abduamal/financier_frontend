@@ -27,7 +27,7 @@ class App extends React.Component {
             <Route exact path="/dashboard" component={withAuth(Dashboard)}/>
             <Route exact path="/login" component={Login}/>
             <Route exact path="/signup" component={Signup}/>
-            <Route exact path="/account" component={withAuth(AccountsContainer)}/>
+            <Route exact path="/account" render={(routerProps) => <AccountsContainer {...routerProps} accounts={this.props.accounts}/>}/>
           </Switch>
         </Router>
       </div>
